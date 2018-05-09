@@ -22,6 +22,14 @@ p = zeros(size(X, 1), 1);
 %
 
 
+X = [ones(m, 1) X];
+predicts = X*Theta1';
+predicts = sigmoid(predicts);
+predicts = [ones(size(predicts,1), 1) predicts];
+predicts = predicts*Theta2';
+predicts = sigmoid(predicts);
+[maxpredict, id] = max(predicts, [], 2);
+p = id';
 
 
 
